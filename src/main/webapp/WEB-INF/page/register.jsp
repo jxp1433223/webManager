@@ -122,7 +122,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $.ajax({
                         data:{"uname":un,"pwd":pwd,"pwds":pwd,"tele":tele},
                         success:function(result){
-                            console.log(result);
                             if(result == "4"){
                                 $("#message").text("✔");
                             }
