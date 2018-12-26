@@ -26,5 +26,6 @@ public class DoAddServlet extends HttpServlet {
         p.setProductDes(des);
         service.add(p);
         resp.sendRedirect("list");
+        System.out.println(p);
     }
 }

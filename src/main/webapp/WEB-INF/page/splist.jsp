@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.neuedu.pojo.Product" %>
+<%@ page import="com.neuedu.pojo.Spgl" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -8,7 +9,7 @@
   Time: 18:49
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Home</title>
@@ -65,12 +66,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="header-top">
         <div class="container">
             <div class="logo">
-                <a><h1>商品页面</h1></a>
+                <a><h1>品牌页面</h1></a>
             </div>
             <div class="search">
-                <form method="post">
-                    <input type="submit" value="" >
-                    <input type="text"  name="text" value="${text}">
+                <form>
+                    <input type="submit" value="">
+                    <input type="text" value="Search " onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Search';}">
                 </form>
             </div>
             <!--top-nav-->
@@ -79,13 +80,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <nav>
                     <ul class="cl-effect-16">
                         <li><a class="active scroll" href="list" data-hover="Home">Home</a></li>
-                        <li><a class="scroll" href="add" data-hover="增加">增加</a></li>
-                       <%-- <li><a class="scroll" href="#xiugai" data-hover="修改">修改</a></li>
-                        <li><a class="scroll" href="delete?productId=${p.productId}" data-hover="删除">删除</a></li>--%>
+                        <li><a class="scroll" href="addsp" data-hover="增加">增加</a></li>
+                        <%-- <li><a class="scroll" href="#xiugai" data-hover="修改">修改</a></li>
+                         <li><a class="scroll" href="delete?productId=${p.productId}" data-hover="删除">删除</a></li>--%>
                         <li><a class="scroll" href="splist" data-hover="品牌管理">品牌管理</a></li>
                         <li><a class="scroll" href="#gallery" data-hover="权限管理">权限管理</a></li>
                         <li><a class="scroll" href="xiugai" data-hover="修改密码">修改密码</a></li>
-                        <li><a class="scroll" href="login" data-hover="退出">退出</a></li>
                     </ul>
                 </nav>
             </div>
@@ -118,25 +118,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
 </style>
 <body>
+<%--<%
+ List<Spgl> list =(List<Spgl>)request.getAttribute("lists");
+    for (Spgl s:list
+         ) {
+        System.out.println(s);
+    }
+%>--%>
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th>商品编号</th>
-            <th>商品名称</th>
-            <th>商品价格</th>
-            <th>商品图片</th>
-            <th>商品详情</th>
-        </tr>
+    <tr>
+        <th>品牌编号</th>
+        <th>品牌名称</th>
+        <th>商品详情</th>
+        <th>商品数量</th>
+    </tr>
     </thead>
     <tbody>
-    <c:forEach items="${lists}" var="p">
+    <c:forEach items="${liste}" var="s">
         <tr>
-            <td>${p.productId}</td>
-            <td>${p.productName}</td>
-            <td>${p.price}</td>
-            <td>${p.url}</td>
-            <td>${p.productDes}</td>
-            <td><a href="delete?productId=${p.productId}">删除|</a><a id="xiugai" href="update?productId=${p.productId}">修改</a></td>
+            <td>${s.productId}</td>
+            <td>${s.spName}</td>
+            <td>${s.spDes}</td>
+            <td>${s.spCount}</td>
+            <td><a href="delete?spgl=${s.productId}">删除|</a><a id="xiugai" href="update?productId=${p.productId}">修改</a></td>
         </tr>
     </c:forEach>
 

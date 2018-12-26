@@ -18,9 +18,30 @@ import java.util.List;
 public class ListServlet extends HttpServlet {
     private IProductService service= new ProductServiceImpl();
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Product> lists=service.getLists();
         req.setAttribute("lists",lists);
         req.getRequestDispatcher("WEB-INF/page/list.jsp").forward(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        String text=req.getParameter("text");
+        if(text==""||text.equals(" ")){
+            List<Product> lists=service.getLists();
+            req.setAttribute("lists",lists);
+            req.getRequestDispatcher("WEB-INF/page/list.jsp").forward(req,resp);
+        }else{
+            List<Product> lists=service.getResults(text);
+            for (Product p:lists
+                 ) {
+                System.out.println(p);
+            }
+            req.setAttribute("text",text);
+            req.setAttribute("lists",lists);
+            req.getRequestDispatcher("WEB-INF/page/list.jsp").forward(req,resp);
+
+        }
     }
 }

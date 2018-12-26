@@ -21,12 +21,13 @@ public class DoforgotServlet extends HttpServlet {
         User u = service.getOne(username);
         System.out.println(u.getAnswer().equals(answer));
         if(u==null){
-            resp.sendRedirect("register");
+            resp.getWriter().write("1");
         }else{
             if(u.getAnswer().equals(answer)){
-                resp.sendRedirect("updatepwd");
+                resp.getWriter().write("2");
+                resp.sendRedirect("login");
             }else {
-                resp.sendRedirect("list");
+                resp.getWriter().write("3");
             }
         }
 

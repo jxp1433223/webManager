@@ -19,6 +19,7 @@ public class DoRegisterServlet extends HttpServlet {
         String pwd = req.getParameter("pwd");
         String pwds =req.getParameter("pwds");
         String tele = req.getParameter("tele");
+       /* String answer = req.getParameter("answer");*/
         if (uname!=""){
             User user = service.getOne(uname);
             if (user == null){
@@ -30,7 +31,6 @@ public class DoRegisterServlet extends HttpServlet {
                         resp.getWriter().write("2");
                     }
                 }
-
             }else {
                 resp.getWriter().write("1");
             }
@@ -39,24 +39,3 @@ public class DoRegisterServlet extends HttpServlet {
 
     }
 }
-               /* String username = req.getParameter("username");
-                String pwd = req.getParameter("pwd");
-                String pwds = req.getParameter("pwds");
-                String tele = req.getParameter("tele");
-                String quer = req.getParameter("quertion");
-                String answer = req.getParameter("answer");
-                User u = new User();
-                u.setUsername(username);
-                u.setPassword(pwd);
-                u.setTele(tele);
-                u.setQuertipn(quer);
-                u.setAnswer(answer);
-                if(pwd.equals(pwds)){
-                service.insert(u);
-                resp.sendRedirect("login");
-                }else {
-                resp.sendRedirect("register");
-                }
-
-                }
-                }*/

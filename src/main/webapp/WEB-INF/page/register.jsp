@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <p class="your-para">电话 :</p>
                 <input type="text" name="tele" id="tele" class="AC">
                 <div id="quertion">你的姓名是？</div>
-                <input type="text" name="answer" value = 'answer' id="answer" class="AC">
+                <input type="text" name="answer" placeholder="answer" id="answer" class="AC">
                 <input type="submit" value="确认">
             </form>
             <form action="login" method="post" id="tuixhu">
@@ -105,56 +105,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
         <script src="js/jquery-3.3.1.min.js"></script>
-        <script>
-            $(function () {
-                /*使用ajax*/
-                var un ;
-                var pwd;
-                var pwds;
-                var tele;
-                var  answer
-                $(".AC").blur(function () {
-                    un = $("#uname").val();
-                    pwd = $("#pwd").val();
-                    pwds = $("#pwds").val();
-                    tele = $("#tele").val();
-                    answer=$("#answer").val();
-                    $.ajax({
-                        data:{"uname":un,"pwd":pwd,"pwds":pwd,"tele":tele},
-                        success:function(result){
-                            if(result == "4"){
-                                $("#message").text("✔");
-                            }
-                            if (result == "43"){
-                                $("#message").text("✔");
-                                $("#pmes").text("✔");
-                                $("#btn").attr("disabled",false);
-                            }
-                            if (result == 1){
-                                $("#message").text("用户已存在");
-                            }
-                            if(result == "42"){
-                                $("#pmes").text("密码不一致");
-                            }
-                        }
-                    })
-                });
-                $("#btn").click(function () {
-                    $.ajax({
-                        url:"doIt",
-                        type:"post",
-                        data:{"uname":un,"pwd":pwd,"pwds":pwd,"tele":tele},
-                        success:function (data) {
-                            if (data > 0){
-                                alert("注册成功")
-                                window.location.href="http://localhost:8080/ajaxTest/login"
-                            }
-                        }
-                    });
-                });
+<script>
+    $(function () {
+        /*使用ajax*/
+        var un ;
+        var pwd;
+        var pwds;
+        var tele;
+        var  answer
+        $(".AC").blur(function () {
+            un = $("#uname").val();
+            pwd = $("#pwd").val();
+            pwds = $("#pwds").val();
+            tele = $("#tele").val();
+            answer=$("#answer").val();
+            $.ajax({
+                data:{"uname":un,"pwd":pwd,"pwds":pwd,"tele":tele},
+                success:function(result){
+                    if(result == "4"){
+                        $("#message").text("✔");
+                    }
+                    if (result == "43"){
+                        $("#message").text("✔");
+                        $("#pmes").text("✔");
+                        $("#btn").attr("disabled",false);
+                    }
+                    if (result == 1){
+                        $("#message").text("用户已存在");
+                    }
+                    if(result == "42"){
+                        $("#pmes").text("密码不一致");
+                    }
+                }
+            })
+        });
+        $("#btn").click(function () {
+            $.ajax({
+                url:"doIt",
+                type:"post",
+                data:{"uname":un,"pwd":pwd,"pwds":pwd,"tele":tele},
+                success:function (data) {
+                    if (data > 0){
+                        alert("注册成功")
+                        window.location.href="http://localhost:8080/ajaxTest/login"
+                    }
+                }
             });
+        });
+    });
 
-        </script>
+</script>
 <div >
 
 </div>

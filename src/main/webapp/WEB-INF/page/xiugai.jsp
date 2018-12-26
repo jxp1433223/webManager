@@ -63,6 +63,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin-left: 700px;
             margin-top: 10px;
         }
+        #tuixhu{
+            margin-top: -88.5px;
+            margin-left: 200px;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <h3 class="tittle">修改密码</h3>
         <div class="col-md-6 box">
             <!--contact-form-->
-            <form>
+            <form method="post" action="doxiugai">
                 <p class="your-para">旧密码 :</p>
                 <input type="password" value="" >
                 <p class="your-para">新密码 :</p>
@@ -80,8 +84,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <input type="password" value="">
                 <ul class="actions">
                     <li><input type="submit" class="style1" value="确认" /></li>
-                    <li><input type="submit" class="style2" value="退出" /></li>
+                   <%-- <li><input type="submit" class="style2" value="退出" /></li>--%>
                 </ul>
+            </form>
+            <form action="splist" method="post" id="tuixhu">
+                <input type="submit" value="取消">
             </form>
      </div>
         <div id="tupian">
