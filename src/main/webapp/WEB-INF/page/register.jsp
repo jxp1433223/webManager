@@ -113,14 +113,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var pwds;
         var tele;
         var  answer
-        $(".AC").blur(function () {
+        $(".AC").onchange(function () {
             un = $("#uname").val();
             pwd = $("#pwd").val();
             pwds = $("#pwds").val();
             tele = $("#tele").val();
             answer=$("#answer").val();
             $.ajax({
-                data:{"uname":un,"pwd":pwd,"pwds":pwd,"tele":tele},
+                data:{"uname":un,"pwd":pwd,"pwds":pwd,"tele":tele,"answer":answer},
                 success:function(result){
                     if(result == "4"){
                         $("#message").text("✔");

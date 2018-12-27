@@ -6,7 +6,7 @@ import com.neuedu.pojo.Spgl;
 
 import java.util.List;
 
-public class SpglServletlmpl implements ISpglServlet {
+public class SpglServletlmpl implements ISpglService {
    private  SpglDao dao=new Spgllmpl();
     @Override
     public List<Spgl> getLists() {

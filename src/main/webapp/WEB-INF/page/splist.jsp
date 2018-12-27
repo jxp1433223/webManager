@@ -118,13 +118,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
 </style>
 <body>
-<%--<%
- List<Spgl> list =(List<Spgl>)request.getAttribute("lists");
-    for (Spgl s:list
-         ) {
-        System.out.println(s);
-    }
-%>--%>
 <table class="table table-striped">
     <thead>
     <tr>
@@ -141,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <td>${s.spName}</td>
             <td>${s.spDes}</td>
             <td>${s.spCount}</td>
-            <td><a href="delete?spgl=${s.productId}">删除|</a><a id="xiugai" href="update?productId=${p.productId}">修改</a></td>
+            <td><a href="deletesp?spId=${s.productId}">删除|</a><a id="xiugai" href="update?productId=${p.productId}">修改</a></td>
         </tr>
     </c:forEach>
 
