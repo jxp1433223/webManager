@@ -130,11 +130,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <tbody>
     <c:forEach items="${liste}" var="s">
         <tr>
-            <td>${s.productId}</td>
+            <td>${s.spId}</td>
             <td>${s.spName}</td>
             <td>${s.spDes}</td>
             <td>${s.spCount}</td>
-            <td><a href="deletesp?spId=${s.productId}">删除|</a><a id="xiugai" href="update?productId=${p.productId}">修改</a></td>
+            <td><a href="deletesp?spId=${s.spId}">删除|</a><a id="xiugai" href="spupdate?spId=${s.spId}">修改</a></td>
         </tr>
     </c:forEach>
 

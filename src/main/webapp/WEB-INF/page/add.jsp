@@ -15,12 +15,12 @@
       商品名称：<input type="text" name="name"><br>
       商品价格：<input type="text" name="price"><br>
 
-      商品图片：<input type="text" name="url"><br>
+      商品图片：<input type="file" name="url" id="img"  width="63px" height="62px"><br>
       商品描述：<input type="text" name="des"><br>
         <input type="submit" value="添加">
     </form>
     <form action="url" method="post"  enctype="multipart/form-data">
-        <input  type="file" name="file" onchange="imgChange(this)"><img id="img" width="63px" height="62px">
+        <input  type="file" name="file" onchange="imgChange(this)">
         <input type="submit" value="11">
     </form>
     <form action="list">
